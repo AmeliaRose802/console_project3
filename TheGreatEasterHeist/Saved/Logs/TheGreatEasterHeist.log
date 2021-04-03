@@ -1086,3 +1086,36 @@ LogConfig: Setting CVar [[r.setres:1280x720]]
 [2021.04.03-14.30.21:295][ 49]AssetCheck: New page: Asset Save: multiple assets
 [2021.04.03-14.30.21:295][ 49]LogContentValidation: Display: Validating MapBuildDataRegistry /Game/StarterContent/Maps/Minimal_Default_BuiltData.Minimal_Default_BuiltData
 [2021.04.03-14.30.21:295][ 49]LogContentValidation: Display: Validating World /Game/StarterContent/Maps/Minimal_Default.Minimal_Default
+[2021.04.03-14.32.04:635][700]LogSlate: Window 'Pick Parent Class' being destroyed
+[2021.04.03-14.32.04:641][700]LogContentBrowser: Deferred new asset file creation: NewBlueprint
+[2021.04.03-14.32.04:648][700]LogContentBrowser: Creating deferred item: NewBlueprint
+[2021.04.03-14.32.19:371][455]LogContentBrowser: Attempting asset rename: NewBlueprint -> BP_PlayerCharacter
+[2021.04.03-14.32.19:376][455]LogContentBrowser: End creating deferred item NewBlueprint
+[2021.04.03-14.32.21:442][695]LogAssetEditorSubsystem: Opening Asset editor for Blueprint /Game/Blueprints/BP_PlayerCharacter.BP_PlayerCharacter
+[2021.04.03-14.32.21:639][695]LogNativeClassHierarchy: Verbose: Native class hierarchy updated for 'BlueprintGraph' in 0.0006 seconds. Added 126 classes and 0 folders.
+[2021.04.03-14.32.22:505][695]LogRenderer: Reallocating scene render targets to support 1144x900 Format 10 NumSamples 1 (Frame:1).
+[2021.04.03-14.32.35:818][ 94]LogSlate: Took 0.005531 seconds to synchronously load lazily loaded font '../../../Engine/Content/Slate/Fonts/Roboto-Italic.ttf' (157K)
+[2021.04.03-14.33.27:871][160]LogMaterial: Display: Missing cached shader map for material M_MaterialSphere_Plain, compiling. 
+[2021.04.03-14.33.27:872][160]LogShaders: Display: 	Compiling M_MaterialSphere_Plain: Platform=PCD3D_SM5, Usage=LightingModel=MSM_DefaultLit, BlendMode=BLEND_Opaque, SpecialEngine=0, TwoSided=0, TSNormal=1, Masked=0, Distorted=0, WritesEveryPixel=1, ModifiesMeshPosition=0, Usage={}
+[2021.04.03-14.33.27:899][160]LogShaders: 		12 Shaders among 1 VertexFactories
+[2021.04.03-14.33.27:900][160]LogMaterial: Display: Missing cached shader map for material M_MaterialSphere, compiling. 
+[2021.04.03-14.33.27:901][160]LogShaders: Display: 	Compiling M_MaterialSphere: Platform=PCD3D_SM5, Usage=LightingModel=MSM_DefaultLit, BlendMode=BLEND_Opaque, SpecialEngine=0, TwoSided=0, TSNormal=1, Masked=0, Distorted=0, WritesEveryPixel=1, ModifiesMeshPosition=0, Usage={}
+[2021.04.03-14.33.27:906][160]LogShaderCompilers: Display: Worker (1/13): shaders left to compile 12
+[2021.04.03-14.33.27:906][160]LogShaderCompilers: Display: Worker (2/13): shaders left to compile 10
+[2021.04.03-14.33.27:906][160]LogShaderCompilers: Display: Worker (3/13): shaders left to compile 8
+[2021.04.03-14.33.27:906][160]LogShaderCompilers: Display: Worker (4/13): shaders left to compile 6
+[2021.04.03-14.33.27:906][160]LogShaderCompilers: Display: Worker (5/13): shaders left to compile 4
+[2021.04.03-14.33.27:906][160]LogShaderCompilers: Display: Worker (6/13): shaders left to compile 2
+[2021.04.03-14.33.27:906][160]LogShaders: 		12 Shaders among 1 VertexFactories
+[2021.04.03-14.33.27:982][160]LogShaderCompilers: Display: Worker (7/13): shaders left to compile 12
+[2021.04.03-14.33.27:982][160]LogShaderCompilers: Display: Worker (8/13): shaders left to compile 10
+[2021.04.03-14.33.27:982][160]LogShaderCompilers: Display: Worker (9/13): shaders left to compile 8
+[2021.04.03-14.33.27:982][160]LogShaderCompilers: Display: Worker (10/13): shaders left to compile 6
+[2021.04.03-14.33.27:982][160]LogShaderCompilers: Display: Worker (11/13): shaders left to compile 4
+[2021.04.03-14.33.27:982][160]LogShaderCompilers: Display: Worker (12/13): shaders left to compile 2
+[2021.04.03-14.33.30:923][208]LogShaders: Warning: Blocking ProcessAsyncResults for 1.3s, processed 2 shader maps, 0 being compiled
+[2021.04.03-14.37.29:044][523]LogSlate: Took 0.000202 seconds to synchronously load lazily loaded font '../../../Engine/Content/Slate/Fonts/Roboto-BoldCondensed.ttf' (158K)
+[2021.04.03-14.40.02:344][431]LogRenderer: Reallocating scene render targets to support 1208x900 Format 10 NumSamples 1 (Frame:14439).
+[2021.04.03-14.40.07:003][921]LogSlate: Only BGRA pngs, bmps or icos are supported in by External Image Picker
+[2021.04.03-14.44.59:708][279]LogSlate: Window 'Project Settings' being destroyed
+[2021.04.03-14.44.59:710][279]LogSlate: Window 'Project Settings' being destroyed
