@@ -7,7 +7,7 @@
 #include "EnemyCharacter.generated.h"
 
 UCLASS()
-class THEGREATEASTERHEIST_API AEnemyCharacter : public ACharacter
+class THEGREATEASTERHEIST_API AEnemyCharacter final : public ACharacter
 {
 	GENERATED_BODY()
 
