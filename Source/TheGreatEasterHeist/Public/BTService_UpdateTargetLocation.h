@@ -6,14 +6,10 @@
 #include "BehaviorTree/BTService.h"
 #include "BTService_UpdateTargetLocation.generated.h"
 
-/**
- * 
- */
 UCLASS()
-class THEGREATEASTERHEIST_API UBTService_UpdateTargetLocation : public UBTService
+class THEGREATEASTERHEIST_API UBTService_UpdateTargetLocation final : public UBTService
 {
 	GENERATED_BODY()
 
 	virtual void TickNode(UBehaviorTreeComponent& OwnerComp, uint8* NodeMemory, float DeltaSeconds) override;
-	
 };

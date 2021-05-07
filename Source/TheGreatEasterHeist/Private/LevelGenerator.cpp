@@ -8,11 +8,9 @@ ULevelGenerator::ULevelGenerator()
 
 }
 
+//https://stackoverflow.com/questions/1761626/weighted-random-numbers
 TSubclassOf<AActor> ULevelGenerator::PickRandomIndex(TMap<TSubclassOf<AActor>, float> Map)
 {
-
-    
-    //https://stackoverflow.com/questions/1761626/weighted-random-numbers
     int Sum_Weights = 0;
 
     for (const TPair<TSubclassOf<AActor>, float>& Pair : Map)
@@ -20,8 +18,7 @@ TSubclassOf<AActor> ULevelGenerator::PickRandomIndex(TMap<TSubclassOf<AActor>, f
         Sum_Weights += Pair.Value;
     }
 
-    int RandNum = FMath::RandRange(0, Sum_Weights);
-   // GEngine->AddOnScreenDebugMessage(-1, 1.0, FColor::Red, TEXT(FMath::RandRange(0.0, Sum_Weights)));
+    const int RandNum = FMath::RandRange(0, Sum_Weights);
 
     int SoFar = 0;
     for (const TPair<TSubclassOf<AActor>, float>& Pair : Map) {
@@ -35,13 +32,13 @@ TSubclassOf<AActor> ULevelGenerator::PickRandomIndex(TMap<TSubclassOf<AActor>, f
     TArray<TSubclassOf<AActor>> KeyArray;
     Map.GenerateKeyArray(KeyArray);
 
-    int ARandNum = FMath::RandRange(0, 1);
+    const int ARandNum = FMath::RandRange(0, 1);
 
     return KeyArray[ARandNum];
 }
 
 //Spawn function for floor
- AActor* ULevelGenerator::SpawnFloor(FTransform AttachPoint, TSubclassOf<AActor> FloorClass, UObject* WorldContextObject)
+ AActor* ULevelGenerator::SpawnFloor(const FTransform AttachPoint, const TSubclassOf<AActor> FloorClass, UObject* WorldContextObject)
 {
     FActorSpawnParameters SpawnParameters;
     SpawnParameters.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
@@ -52,11 +49,10 @@ TSubclassOf<AActor> ULevelGenerator::PickRandomIndex(TMap<TSubclassOf<AActor>, f
         FloorClass, AttachPoint.GetLocation(),
         AttachPoint.GetRotation().Rotator(),
         SpawnParameters);
-    
 }
 
 //Spawn function for level object
-void ULevelGenerator::SpawnLevelObject(TArray<FTransform> SpawnPoints, int NumPoints, TMap<TSubclassOf<AActor>, float> LevelObjects, UObject* WorldContextObject)
+void ULevelGenerator::SpawnLevelObject(TArray<FTransform> SpawnPoints, const int NumPoints, const TMap<TSubclassOf<AActor>, float> LevelObjects, UObject* WorldContextObject)
 {
     UWorld* World = GEngine->GetWorldFromContextObject(WorldContextObject);
 

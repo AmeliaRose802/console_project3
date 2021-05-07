@@ -3,23 +3,9 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "Runtime/Engine/Classes/Engine/World.h"
 #include "Kismet/BlueprintFunctionLibrary.h"
-#include "Math/UnrealMathUtility.h"
 #include "LevelGenerator.generated.h"
 
-
-
-/**
- * 
- */
-
-/*
-struct{
-actor
-probability 
-}
-*/
 UCLASS()
 class THEGREATEASTERHEIST_API ULevelGenerator final : public UBlueprintFunctionLibrary
 {
