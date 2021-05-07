@@ -3,7 +3,12 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "Runtime/Engine/Classes/Engine/World.h"
+#include "Kismet/BlueprintFunctionLibrary.h"
+#include "Math/UnrealMathUtility.h"
 #include "LevelGenerator.generated.h"
+
+
 
 /**
  * 
@@ -16,36 +21,24 @@ probability
 }
 */
 UCLASS()
-class THEGREATEASTERHEIST_API ALevelGenerator final : public AActor
+class THEGREATEASTERHEIST_API ULevelGenerator final : public UBlueprintFunctionLibrary
 {
 	GENERATED_BODY()
 	
 public:
-	ALevelGenerator();
-
-	//Variables
-	//Types of obstacles
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	TMap<TSubclassOf<AActor>, float> LevelObjects;
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	TSubclassOf<AActor> FloorClass;
-
-	//Types of tiles
-	//Power-ups
-	//Coins
+	ULevelGenerator();
 
 	//Weighted random functions
-	TSubclassOf<AActor> PickRandomIndex(TMap<TSubclassOf<AActor>, float> Map);
+	static TSubclassOf<AActor> PickRandomIndex(TMap<TSubclassOf<AActor>, float> Map);
 
 
 	//Spawn function for floor
 
 	UFUNCTION(BlueprintCallable)
-	AActor* SpawnFloor(FTransform AttachPoint) const;
+	static AActor* SpawnFloor(FTransform AttachPoint, TSubclassOf<AActor> FloorClass, UObject* WorldContextObject);
 
 	//Spawn function for level object
 	UFUNCTION(BlueprintCallable)
-	void SpawnLevelObject(TArray<FTransform> SpawnPoints, int NumPoints);
+	static void SpawnLevelObject(TArray<FTransform> SpawnPoints, int NumPoints, TMap<TSubclassOf<AActor>, float> LevelObjects, UObject* WorldContextObject);
 
 };

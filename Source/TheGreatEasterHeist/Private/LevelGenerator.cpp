@@ -3,42 +3,52 @@
 
 #include "LevelGenerator.h"
 
-ALevelGenerator::ALevelGenerator()
+ULevelGenerator::ULevelGenerator()
 {
 
 }
 
-TSubclassOf<AActor> ALevelGenerator::PickRandomIndex(TMap<TSubclassOf<AActor>, float> Map)
+TSubclassOf<AActor> ULevelGenerator::PickRandomIndex(TMap<TSubclassOf<AActor>, float> Map)
 {
+
+    
     //https://stackoverflow.com/questions/1761626/weighted-random-numbers
-    float Sum_Weights = 0;
+    int Sum_Weights = 0;
 
     for (const TPair<TSubclassOf<AActor>, float>& Pair : Map)
     {
         Sum_Weights += Pair.Value;
     }
 
-    const float Rand = FMath::RandRange(0.0, Sum_Weights);
+    int RandNum = FMath::RandRange(0, Sum_Weights);
+   // GEngine->AddOnScreenDebugMessage(-1, 1.0, FColor::Red, TEXT(FMath::RandRange(0.0, Sum_Weights)));
 
-    float SoFar = 0;
+    int SoFar = 0;
     for (const TPair<TSubclassOf<AActor>, float>& Pair : Map) {
         SoFar += Pair.Value;
-        if (Rand >= SoFar) {
+        if (RandNum <= SoFar) {
             return Pair.Key;
         }
     }
-
+    
     //Fallback, should never reach here
     TArray<TSubclassOf<AActor>> KeyArray;
     Map.GenerateKeyArray(KeyArray);
-    return KeyArray[0];
+
+    int ARandNum = FMath::RandRange(0, 1);
+
+    return KeyArray[ARandNum];
 }
 
 //Spawn function for floor
-AActor * ALevelGenerator::SpawnFloor(const FTransform AttachPoint) const
+ AActor* ULevelGenerator::SpawnFloor(FTransform AttachPoint, TSubclassOf<AActor> FloorClass, UObject* WorldContextObject)
 {
-    const FActorSpawnParameters SpawnParameters;
-    return GetWorld()->SpawnActor<AActor>(
+    FActorSpawnParameters SpawnParameters;
+    SpawnParameters.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
+    SpawnParameters.bNoFail = true;
+    UWorld* World = GEngine->GetWorldFromContextObject(WorldContextObject);
+
+    return World->SpawnActor<AActor>(
         FloorClass, AttachPoint.GetLocation(),
         AttachPoint.GetRotation().Rotator(),
         SpawnParameters);
@@ -46,12 +56,14 @@ AActor * ALevelGenerator::SpawnFloor(const FTransform AttachPoint) const
 }
 
 //Spawn function for level object
-void ALevelGenerator::SpawnLevelObject(TArray<FTransform> SpawnPoints, const int NumPoints)
+void ULevelGenerator::SpawnLevelObject(TArray<FTransform> SpawnPoints, int NumPoints, TMap<TSubclassOf<AActor>, float> LevelObjects, UObject* WorldContextObject)
 {
-    const int SpawnPointIndex = FMath::RandRange(0, NumPoints);
+    UWorld* World = GEngine->GetWorldFromContextObject(WorldContextObject);
+
+    const int SpawnPointIndex = FMath::RandRange(0, NumPoints-1);
     const FActorSpawnParameters SpawnParameters;
-    GetWorld()->SpawnActor<AActor>(
-        PickRandomIndex(LevelObjects),
+        World->SpawnActor<AActor>(
+            ULevelGenerator::PickRandomIndex(LevelObjects),
         SpawnPoints[SpawnPointIndex].GetLocation(),
         SpawnPoints[SpawnPointIndex].GetRotation().Rotator(),
         SpawnParameters);
